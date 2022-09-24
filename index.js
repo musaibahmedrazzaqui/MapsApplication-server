@@ -6,6 +6,8 @@ const cors = require('cors');
 app.use(cors());
 app.use(express.json());
 
+var port = process.env.port || 8000;
+
 const db = mysql.createConnection({
     user: 'be9c40441b7ff9',
     host: 'us-cdbr-east-06.cleardb.net',
@@ -31,6 +33,6 @@ app.post('/submit', (req, res) => {
     });
 })
 
-app.listen(process.env.PORT || 3000, () => {
-    console.log(`Server running on port`);
+app.listen(port, () => {
+    console.log(`Server running on port` + port);
 });
